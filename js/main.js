@@ -71,13 +71,14 @@ function incomeExpenseAdder(btn, listId) {
 
     let transactionId = `transaction-${transactionIdGenerator()}`;
 
-    console.log(transactionComponentGenerator(name, amount, transactionId));
+    //console.log(transactionComponentGenerator(name, amount, transactionId));
     let listContainer = document.getElementById(listId);
 
     storeTransaction([transactionId, name, amount], transactionType);
-    console.log(JSON.parse(window.localStorage.getItem("expenseArray")));
-    console.log(JSON.parse(window.localStorage.getItem("incomeArray")));
+    //console.log(JSON.parse(window.localStorage.getItem("expenseArray")));
+    //console.log(JSON.parse(window.localStorage.getItem("incomeArray")));
     listContainer.appendChild(transactionComponentGenerator(name, amount));
+    window.location.reload();
 }
 
 function getTransactionDataIndex(transactionId) {
@@ -86,10 +87,10 @@ function getTransactionDataIndex(transactionId) {
     let incomeArray = JSON.parse(window.localStorage.getItem("incomeArray"));
 
     for (let index = 0; index < expenseArray.length; index++) {
-        if (expenseArray[index][0] == transactionId) {
+        if (expenseArray[index][0] === transactionId) {
             return {"index": index,
-                     arr: expenseArray, 
-                     type: "expenseArray"
+                     "arr": expenseArray,
+                     "type": "expenseArray"
                    };
         }
     }
@@ -97,8 +98,8 @@ function getTransactionDataIndex(transactionId) {
     for (let index = 0; index < incomeArray.length; index++) {
         if (incomeArray[index][0] === transactionId) {
             return {"index": index,
-                arr: incomeArray,
-                type: "incomeArray"
+                "arr": incomeArray,
+                "type": "incomeArray"
                 };
         }
     }
@@ -107,8 +108,8 @@ function getTransactionDataIndex(transactionId) {
 function incomeExpenseRemover(btn) {
     // Removes expense or income from the respective list.
     let parentNode = btn.parentNode.parentNode.parentNode;
-    let transactionData = getTransactionDataIndex(parentNode.id);
-    
+    let transactionData = getTransactionDataIndex(parentNode.id, expenseArray, incomeArray);
+    console.log(transactionData)
     let ulNode;
     if (transactionData["type"] === "expenseArray") {
         ulNode = document.getElementById("list-of-expenses");
@@ -119,7 +120,6 @@ function incomeExpenseRemover(btn) {
 
     for (let child of ulNode.children) {
         if (child.id === parentNode.id) {
-            console.log(child);
             ulNode.removeChild(child);
         }
     }
