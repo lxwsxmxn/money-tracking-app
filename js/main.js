@@ -127,6 +127,7 @@ function incomeExpenseRemover(btn) {
     let updatedTransactionArray = transactionData["arr"];
     window.localStorage.setItem(transactionData["type"], JSON
         .stringify(updatedTransactionArray));
+    window.location.reload();
 }
 
 function incomeExpenseEditor(btn) {
