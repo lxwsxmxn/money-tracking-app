@@ -66,7 +66,13 @@ function incomeExpenseAdder(btn, listId) {
 
     if (name === "" || amount === "") {
     // Prevents the adding transaction if either of the Name or Amount field is empty.
-        return
+        return;
+    }
+
+    const availableFunds = Number(document.getElementById("available-funds").innerHTML);
+    if (Number(amount) > availableFunds && transactionType === "expense") {
+    // Prevents the adding of expenses if the expense amount is greater than the availableFunds
+        return;
     }
 
     let transactionId = `transaction-${transactionIdGenerator()}`;
@@ -81,7 +87,7 @@ function incomeExpenseAdder(btn, listId) {
     window.location.reload();
 }
 
-function getTransactionDataIndex(transactionId) {
+function getDataIndexAndType(transactionId) {
     // Returns transaction data index
     let expenseArray = JSON.parse(window.localStorage.getItem("expenseArray"));
     let incomeArray = JSON.parse(window.localStorage.getItem("incomeArray"));
@@ -108,7 +114,7 @@ function getTransactionDataIndex(transactionId) {
 function incomeExpenseRemover(btn) {
     // Removes expense or income from the respective list.
     let parentNode = btn.parentNode.parentNode.parentNode;
-    let transactionData = getTransactionDataIndex(parentNode.id, expenseArray, incomeArray);
+    let transactionData = getDataIndexAndType(parentNode.id, expenseArray, incomeArray);
     console.log(transactionData)
     let ulNode;
     if (transactionData["type"] === "expenseArray") {
