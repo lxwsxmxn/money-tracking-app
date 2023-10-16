@@ -69,12 +69,6 @@ function incomeExpenseAdder(btn, listId) {
         return;
     }
 
-    const availableFunds = Number(document.getElementById("available-funds").innerHTML);
-    if (Number(amount) > availableFunds && transactionType === "expense") {
-    // Prevents the adding of expenses if the expense amount is greater than the availableFunds
-        return;
-    }
-
     let transactionId = `transaction-${transactionIdGenerator()}`;
 
     //console.log(transactionComponentGenerator(name, amount, transactionId));
