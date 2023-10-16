@@ -1,0 +1,19 @@
+/* chart.css */
+
+#chart {
+    width: 200px; height: 15px;
+    border: 1px black solid;
+}
+
+.chart-element {
+    height: 100%;
+}
+
+#income-chart {
+    display: inline;
+    background-color: rgb(0, 200, 0);
+}
+
+#outcome-chart {
+    background-color: red;
+}

@@ -4,6 +4,7 @@
     <meta name="veiwport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/chart.css" rel="stylesheet" />
     <script src="js/main.js"></script>
 </head>
 <body>
@@ -14,11 +15,14 @@
     </div>
     <div id="dashboard">
         <h2>DASHBOARD</h2>
-        <div id="chart"></div>
+        <div id="chart">
+            <div id="income-chart" class="chart-element"></div>
+            <div id="outcome-chart" class="chart-element"></div>
+        </div>
         <div id="summarized-amounts">
-            <div class="total-amount">Total Income: R<span id="total-income">0</span></div>
-            <div class="total-amount">Avalalble Funds: R<span id="available-funds">0</span></div>
-            <div class="total-amount">Total Outcome: R<span id="total-outcome">0</span></div>
+            <div class="total-amount">Total Of Incomes: R<span id="total-income">0</span></div>
+            <div class="total-amount">Balance: R<span id="available-funds">0</span></div>
+            <div class="total-amount">Total Of Expenses: R<span id="total-outcome">0</span></div>
         </div>
     </div>
     <div id="budget-tracker-container">
