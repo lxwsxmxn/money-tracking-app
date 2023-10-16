@@ -22,4 +22,15 @@ availableFundsElem.innerHTML = Number(totalIncomeElem.innerHTML) - Number(totalO
 
 // Chart
 
+function getChartElementPercentage(amount, total) {
+    return String((amount/total) * 100) + "%";
+}
+let incomeChart = document.getElementById("income-chart");
+let outcomeChart = document.getElementById("outcome-chart");
 
+
+let incomeOutcomeTotal = Number(totalIncomeElem.innerHTML) + Number(totalOutcomeElem.innerHTML);
+
+incomeChart.style.width = getChartElementPercentage(Number(totalIncomeElem.innerHTML), incomeOutcomeTotal);
+outcomeChart.style.width = getChartElementPercentage(Number(totalOutcomeElem.innerHTML), incomeOutcomeTotal);
+console.log(incomeChart.style);
