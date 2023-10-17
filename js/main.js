@@ -126,3 +126,8 @@ function incomeExpenseRemover(btn) {
         .stringify(updatedTransactionArray));
     window.location.reload();
 }
+
+function incomeExpenseEditor(btn) {
+    // Edits transactions
+    console.log("This function works");
+}
