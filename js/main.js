@@ -105,8 +105,7 @@ function getDataIndexAndType(transactionId) {
 function incomeExpenseRemover(btn) {
     // Removes expense or income from the respective list.
     let parentNode = btn.parentNode.parentNode.parentNode;
-    let transactionData = getDataIndexAndType(parentNode.id, expenseArray, incomeArray);
-    console.log(transactionData)
+    let transactionData = getDataIndexAndType(parentNode.id);
     let ulNode;
     if (transactionData["type"] === "expenseArray") {
         ulNode = document.getElementById("list-of-expenses");
@@ -130,4 +129,24 @@ function incomeExpenseRemover(btn) {
 function incomeExpenseEditor(btn) {
     // Edits transactions
     console.log("This function works");
+    let parentNode = btn.parentNode.parentNode.parentNode;
+    let transactionData = getDataIndexAndType(parentNode.id);
+    let nameInputValue;
+    let amountInputValue;
+    console.log(transactionData);
+    
+    if (transactionData["type"] == "expenseArray") {
+        console.log("works");
+        nameInputValue = document.getElementById("expense-name");
+        amountInputValue = document.getElementById("expense-amount");
+    }
+    if (transactionData["type"] == "incomeArray") {
+        console.log("works");
+        nameInputValue = document.getElementById("income-name");
+        amountInputValue = document.getElementById("income-amount");
+    }
+
+    nameInputValue.value = transactionData["arr"][transactionData["index"]][1];
+    amountInputValue.value = transactionData["arr"][transactionData["index"]][2];
+    incomeExpenseRemover(btn);
 }
