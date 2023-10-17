@@ -10,9 +10,10 @@
 <body>
 
 <div id="budget-container">
-    <div id="app-title">
+    <header id="app-title">
          <h1>BUDGET APP</h1>
-    </div>
+    </header>
+
     <div id="dashboard">
         <h2>DASHBOARD</h2>
         <div id="chart">
@@ -25,7 +26,12 @@
             <div class="total-amount">Total Of Expenses: R<span id="total-outcome">0</span></div>
         </div>
     </div>
+
     <div id="budget-tracker-container">
+        <div id="toggle-buttons">
+            <input type="button" id="expense-toggle-button" class="toggle-button" value="EXPENSES"/>
+            <input type="button" id="income-toggle-button" class="toggle-button" value="INCOMES"/>
+        </div>
         <div id="expense-container" class="list-container hide">
              <h3>EXPENSES</h3>
              <ul id="list-of-expenses" class="lists"></ul>
@@ -44,6 +50,9 @@
                  <input id="add-income-btn" type="button" name="add-income-btn" value="ADD" onclick="incomeExpenseAdder(this, 'list-of-incomes')"/>
              </div>
         </div>
+    </div>
+    <div id="reset-data-button">
+        <input type="button" value="CLEAR DATA" onclick="clearData()"/>
     </div>
 </div>
 
