@@ -24,8 +24,8 @@ function transactionComponentButton() {
     // Generates the delete and edit for the transaction components.
     let transactionButtonContainer = document.createElement("span");
     transactionButtonContainer.classList.add("transaction-btn-container");
-    let deleteButton = `<input type="button" onclick="incomeExpenseRemover(this)" />`
-    let editButton = `<input type="button" onclick="incomeExpenseEditor(this)" />`
+    let deleteButton = `<input value="DELETE" type="button" onclick="incomeExpenseRemover(this)" />`
+    let editButton = `<input value="EDIT" type="button" onclick="incomeExpenseEditor(this)" />`
     transactionButtonContainer.innerHTML = editButton + deleteButton;
     return transactionButtonContainer
 }
@@ -34,13 +34,13 @@ function storeTransaction(transactionComponentData, transactionType) {
     // Stores transactionComponent in window.localStorage
     if (transactionType === "expense") {
         let expenseArray = JSON.parse(window.localStorage.getItem("expenseArray"));
-        expenseArray.push(transactionComponentData);
+        expenseArray.unshift(transactionComponentData);
         window.localStorage.setItem("expenseArray", JSON.stringify(expenseArray));
     }
 
     if (transactionType === "income") {
         let incomeArray = JSON.parse(window.localStorage.getItem("incomeArray"));
-        incomeArray.push(transactionComponentData);
+        incomeArray.unshift(transactionComponentData);
         window.localStorage.setItem("incomeArray", JSON.stringify(incomeArray));
     }
 }
@@ -74,7 +74,7 @@ function incomeExpenseAdder(btn, listId) {
     let listContainer = document.getElementById(listId);
 
     storeTransaction([transactionId, name, amount], transactionType);
-    listContainer.appendChild(transactionComponentGenerator(name, amount));
+    listContainer.insertBefore(transactionComponentGenerator(name, amount), listContainer.firstElementChild);
     window.location.reload();
 }
 

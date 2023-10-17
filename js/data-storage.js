@@ -1,5 +1,9 @@
 // data-storage.js - this script is responsible for the loading and initialization of data.
-//window.localStorage.clear();
+function clearData() {
+    // Resets Data
+    window.localStorage.clear();
+    window.location.reload();
+}
 
 // Check if there is any data in localStorage, and if there is no data
 // initialize it by running the following code

@@ -33,4 +33,3 @@ let incomeOutcomeTotal = Number(totalIncomeElem.innerHTML) + Number(totalOutcome
 
 incomeChart.style.width = getChartElementPercentage(Number(totalIncomeElem.innerHTML), incomeOutcomeTotal);
 outcomeChart.style.width = getChartElementPercentage(Number(totalOutcomeElem.innerHTML), incomeOutcomeTotal);
-console.log(incomeChart.style);
