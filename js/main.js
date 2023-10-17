@@ -13,7 +13,7 @@ function transactionComponentGenerator(transactionName, transactionAmount, id) {
     transactionNameContainer.classList.add("transaction-name");
     transactionContainer.appendChild(transactionNameContainer);
     let transactionAmountContainer = document.createElement("span");
-    transactionAmountContainer.innerHTML = transactionAmount;
+    transactionAmountContainer.innerHTML = "R" + transactionAmount;
     transactionAmountContainer.classList.add("transaction-amount");
     transactionContainer.appendChild(transactionAmountContainer);
     transactionContainer.appendChild(transactionComponentButton());
@@ -71,12 +71,9 @@ function incomeExpenseAdder(btn, listId) {
 
     let transactionId = `transaction-${transactionIdGenerator()}`;
 
-    //console.log(transactionComponentGenerator(name, amount, transactionId));
     let listContainer = document.getElementById(listId);
 
     storeTransaction([transactionId, name, amount], transactionType);
-    //console.log(JSON.parse(window.localStorage.getItem("expenseArray")));
-    //console.log(JSON.parse(window.localStorage.getItem("incomeArray")));
     listContainer.appendChild(transactionComponentGenerator(name, amount));
     window.location.reload();
 }
