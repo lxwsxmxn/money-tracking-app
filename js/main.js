@@ -129,8 +129,3 @@ function incomeExpenseRemover(btn) {
         .stringify(updatedTransactionArray));
     window.location.reload();
 }
-
-function incomeExpenseEditor(btn) {
-    // Edits expense or income list item.
-    console.log("this piece of ass code works");
-}
