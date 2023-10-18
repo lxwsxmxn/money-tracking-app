@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+}
+
+body {
+    background-color: gray;
+    display: flex;
+}
+
+/* --Budget Container-- */
+#budget-container {
+    display: grid;
+    grid-template-rows: 90px 150px 480px 50px;
+    width: 480px;
+    height: 760px;
+    margin: 50px auto;
+    color: white;
+    background-color: rgb(33, 10, 40);
+    border-radius: 10px;
+}
+
+/* --App Title-- */
+#app-title h1 {
+    color: red;
+    font-size: 1.50rem;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* --Dashboard-- */
+#dashboard {
+}
+
+#dashboard h2 {
+    font-size: 1.15rem;
+}
+
+/* --Budget Tracker Container-- */
+#budget-tracker-container {
+}
+
+.list-container h3 {
+    font-size: 1rem;
+}
+
+.lists {
+    list-style: none;
+}
+
+.hide {
+   /* display: none;*/
+}
