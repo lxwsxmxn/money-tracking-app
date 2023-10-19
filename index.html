@@ -6,6 +6,7 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/chart.css" rel="stylesheet" />
     <script src="js/main.js"></script>
+    <script src="js/toggle.js"></script>
 </head>
 <body>
 
@@ -21,32 +22,32 @@
             <div id="outcome-chart" class="chart-element"></div>
         </div>
         <div id="summarized-amounts">
-            <div class="total-amount">Total Of Incomes: R<span id="total-income">0</span></div>
-            <div class="total-amount">Balance: R<span id="available-funds">0</span></div>
-            <div class="total-amount">Total Of Expenses: R<span id="total-outcome">0</span></div>
+            <div class="total-amount"><span>Total Income:</span><span><span class="currency">R</span><span id="total-income">0</span></span></div>
+            <div class="total-amount"><span>Balance:</span><span><span class="currency">R</span><span id="available-funds">0</span></span></div>
+            <div class="total-amount"><span>Total Outcome:</span><span><span class="currency">R</span><span id="total-outcome">0</span></span></div>
         </div>
     </div>
 
     <div id="budget-tracker-container">
         <div id="toggle-buttons">
-            <input type="button" id="expense-toggle-button" class="toggle-button" value="EXPENSES"/>
-            <input type="button" id="income-toggle-button" class="toggle-button" value="INCOMES"/>
+            <input type="button" id="expense-toggle-button" class="toggle-button" value="EXPENSES" onclick="toggleList(this)"/>
+            <input type="button" id="income-toggle-button" class="toggle-button" value="INCOMES" onclick="toggleList(this)"/>
         </div>
-        <div id="expense-container" class="list-container hide">
+        <div id="expense-container" class="list-container">
              <h3>EXPENSES</h3>
              <ul id="list-of-expenses" class="lists"></ul>
-             <div id="expense-input">
-                 <label for="expense-name">Name: <input id="expense-name" type="text" name="expense-name" /></label>
-                 <label for="expense-amount">Amount: R<input id="expense-amount" type="number" name="expense-amount" /></label>
+             <div id="expense-input" class="transaction-input">
+                 <label class="transaction-input-field" for="expense-name">Name: <input id="expense-name" type="text" name="expense-name" /></label>
+                 <label class="transaction-input-field" for="expense-amount">Amount: R<input id="expense-amount" type="number" name="expense-amount" /></label>
                  <input id="add-expense-btn" type="button" name="add-expense-btn" value="ADD" onclick="incomeExpenseAdder(this, 'list-of-expenses')"/>
              </div>
         </div>
         <div id="income-container" class="list-container hide">
              <h3>INCOMES</h3>
              <ul id="list-of-incomes" class="lists"></ul>
-             <div id="income-input">
-                 <label for="income-name">Name: <input id="income-name" type="text" name="income-name" /></label>
-                 <label for="income-amount"> Amount: R<input id="income-amount" type="number" name="income-amount" /></label>
+             <div id="income-input" class="transaction-input">
+                 <label class="transaction-input-field" for="income-name">Name: <input id="income-name" type="text" name="income-name" /></label>
+                 <label class="transaction-input-field" for="income-amount"> Amount: R<input id="income-amount" type="number" name="income-amount" /></label>
                  <input id="add-income-btn" type="button" name="add-income-btn" value="ADD" onclick="incomeExpenseAdder(this, 'list-of-incomes')"/>
              </div>
         </div>

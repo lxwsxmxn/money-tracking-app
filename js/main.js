@@ -1,8 +1,7 @@
 // main.js - app functionality script
 
 function transactionComponentGenerator(transactionName, transactionAmount, id) {
-    // Generates a transaction component that will be added to either the income or 
-    // expense list.
+    // Generates a transaction component that will be added to either the income or expense list.
     let transaction = document.createElement("li");
     transaction.id = id;
     let transactionContainer = document.createElement("div");
@@ -128,7 +127,6 @@ function incomeExpenseRemover(btn) {
 
 function incomeExpenseEditor(btn) {
     // Edits transactions
-    console.log("This function works");
     let parentNode = btn.parentNode.parentNode.parentNode;
     let transactionData = getDataIndexAndType(parentNode.id);
     let nameInputValue;
@@ -136,12 +134,10 @@ function incomeExpenseEditor(btn) {
     console.log(transactionData);
     
     if (transactionData["type"] == "expenseArray") {
-        console.log("works");
         nameInputValue = document.getElementById("expense-name");
         amountInputValue = document.getElementById("expense-amount");
     }
     if (transactionData["type"] == "incomeArray") {
-        console.log("works");
         nameInputValue = document.getElementById("income-name");
         amountInputValue = document.getElementById("income-amount");
     }

@@ -3,7 +3,7 @@ const totalIncomeElem = document.getElementById("total-income");
 const totalOutcomeElem = document.getElementById("total-outcome");
 const availableFundsElem = document.getElementById("available-funds");
 
-// Total Calcutions
+// Calcutions
 function calculateTotalOfTransactions(transactionArray) {
     let transactionTotal = 0;
     for (let index = 0; index < transactionArray.length; index++) {
