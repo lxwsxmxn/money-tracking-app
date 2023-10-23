@@ -1,3 +1,3 @@
 # MONEY TRACKING APP
 
-A simple app that help the user keeps track of their money.
+A simple app that help the user keep track of their money.
